@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.moji.sevenchallenge.R
 import com.moji.sevenchallenge.models.Category
 import com.moji.sevenchallenge.models.MovieTitle
-import com.moji.sevenchallenge.ui.widgets.InfiniteScroll
 import kotlinx.android.synthetic.main.item_categories.view.*
 
 class CategoryAdapter(var categoryList: List<Category>, private val mListener: ItemClickListener) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
@@ -51,21 +50,8 @@ class CategoryAdapter(var categoryList: List<Category>, private val mListener: I
             textCategoryName.text = category.displayName
             recyclerMovieTitles.tag = category.name
 
-            (recyclerMovieTitles.adapter as? MovieTitleAdapter)?.
-            reload(category.movieTitlesResponse.movieTitles ?: listOf())
+            (recyclerMovieTitles.adapter as? MovieTitleAdapter)?.reload(category.movieTitles)
 
-
-            (recyclerMovieTitles.layoutManager as? LinearLayoutManager)?.let {layoutManager ->
-                recyclerMovieTitles.addOnScrollListener(InfiniteScroll(layoutManager) {
-
-                    val totalPages = category.movieTitlesResponse.totalPages ?: 1
-                    category.movieTitlesResponse.page?.let { page ->
-                        if (page < totalPages) {
-                            mListener.onLoadMore(category.name, page + 1)
-                        }
-                    }
-                })
-            }
         }
 
         fun setup(){
@@ -83,6 +69,5 @@ class CategoryAdapter(var categoryList: List<Category>, private val mListener: I
      */
     interface ItemClickListener {
         fun onItemClick(movieTitle: MovieTitle)
-        fun onLoadMore(categoryName: String, page: Int)
     }
 }

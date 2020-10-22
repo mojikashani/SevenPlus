@@ -1,6 +1,5 @@
 package com.moji.sevenchallenge.presenters.base
 
-import android.annotation.SuppressLint
 import android.content.Context
 import com.moji.sevenchallenge.extensions.isNetworkAvailable
 import com.moji.sevenchallenge.injection.component.DaggerPresenterComponent

@@ -12,7 +12,7 @@ import com.moji.sevenchallenge.models.MovieTitle
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_movie_title.view.*
 
-class MovieTitleAdapter(var movieTitleList: List<MovieTitle>, private val mListener: ItemClickListener) : RecyclerView.Adapter<MovieTitleAdapter.MovieTitleViewHolder>() {
+class MovieTitleAdapter(private var movieTitleList: List<MovieTitle>, private val mListener: ItemClickListener) : RecyclerView.Adapter<MovieTitleAdapter.MovieTitleViewHolder>() {
 
 
     fun reload(movieTitleList: List<MovieTitle>) {
@@ -57,7 +57,7 @@ class MovieTitleAdapter(var movieTitleList: List<MovieTitle>, private val mListe
 
         private fun setFadeAnimation(view: View) {
             val anim = AlphaAnimation(0.0f, 1.0f)
-            anim.duration = 300
+            anim.duration = itemView.context.resources.getInteger(R.integer.config_transitionAnimTime_fade).toLong()
             view.startAnimation(anim)
         }
     }

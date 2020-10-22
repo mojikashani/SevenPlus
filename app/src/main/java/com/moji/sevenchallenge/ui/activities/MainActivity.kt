@@ -59,10 +59,6 @@ class MainActivity : BaseActivity(), MovieTitlesView {
                 }
 
             }
-
-            override fun onLoadMore(categoryName: String, page: Int){
-                presenter.getMovieTitles(categoryName, page)
-            }
         })
         recyclerCategories?.apply {
             layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
@@ -73,19 +69,8 @@ class MainActivity : BaseActivity(), MovieTitlesView {
     override fun onTitlesFetched(movieTitlesResponse: MovieTitlesResponse, categoryName: String) {
         categories.findLast{it.name == categoryName}
             ?.also { category ->
-                if(movieTitlesResponse.page == 1) {
-                    category.movieTitlesResponse = movieTitlesResponse
-                    categoryAdapter.notifyItemChanged(category.index)
-                }else{
-                    val currentPage = category.movieTitlesResponse.page ?: 1
-                    val fetchedPage = movieTitlesResponse.page ?: 1
-                    if( currentPage < fetchedPage){
-                        category.movieTitlesResponse.page = fetchedPage
-                        category.movieTitlesResponse.movieTitles?.addAll(movieTitlesResponse.movieTitles?.toTypedArray() ?: arrayOf())
-
-                        categoryAdapter.notifyItemChanged(category.index)
-                    }
-                }
+                category.movieTitles = movieTitlesResponse.movieTitles ?: listOf()
+                categoryAdapter.notifyItemChanged(category.index)
             }
     }
 

@@ -11,5 +11,5 @@ data class MovieTitlesResponse(
     var totalPages: Int?,
 
     @SerializedName("results")
-    var movieTitles: MutableList<MovieTitle>?
+    var movieTitles: List<MovieTitle>?
 )

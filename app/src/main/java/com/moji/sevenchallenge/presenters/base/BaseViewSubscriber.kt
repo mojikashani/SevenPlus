@@ -2,7 +2,6 @@ package com.moji.sevenchallenge.presenters.base
 
 
 import com.moji.sevenchallenge.helpers.GsonHelper
-import com.moji.sevenchallenge.helpers.LOADING
 import com.moji.sevenchallenge.models.response.ErrorResponse
 import com.moji.sevenchallenge.views.base.RequestView
 import io.reactivex.Observer
@@ -76,6 +75,7 @@ abstract class BaseViewSubscriber<T : Any, V : RequestView>(
 
     companion object{
         private const val DEFAULT_ERROR = "Something went wrong! please try again."
+        private const val LOADING = "Loading..."
         fun getErrorMessage(e: Throwable): String{
             return if(e is HttpException){
                 try {

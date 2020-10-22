@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.moji.sevenchallenge.extensions.mockNetworkAvailabilityToFalse
-import com.moji.sevenchallenge.models.MovieTitle
 import com.moji.sevenchallenge.models.response.MovieTitlesResponse
 import com.moji.sevenchallenge.presenters.MovieTitlesPresenter
 import com.moji.sevenchallenge.tools.POPULAR_CATEGORY
