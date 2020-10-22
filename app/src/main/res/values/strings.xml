@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">SevenChallenge</string>
+    <string name="app_name">Seven Challenge</string>
+
+    <string name="ok">OK</string>
+    <string name="try_again">Try again</string>
+
+    <string name="genres_list">Genres: %1$s</string>
+    <string name="running_time">Running time: %1$s</string>
+    <string name="average_rate">Average rate: %1$s</string>
+
+    <string name="error_unknown_error">Unknown Error</string>
+    <string name="error_no_internet_connection">No internet connection!</string>
+    <string name="error_authentication_failed">Authentication failed!</string>
 </resources>

@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="Red">#FF5050</color>
+    <color name="DarkRed">#72474B</color>
+
+    <color name="successGreen">#52c96e</color>
+    <color name="successGreenLight">#72f98e</color>
+    <color name="successGreenDark">#115511</color>
+
+    <color name="loader_overlay">#22000000</color>
 </resources>
